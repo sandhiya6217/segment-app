@@ -1,38 +1,186 @@
+/* Global styles */
 .App {
   text-align: center;
+  padding: 20px;
+  background-color: #f9f9f9;
+  min-height: 100vh; /* Ensures it covers full screen height */
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+.save-button {
+  background-color: #007bff;
   color: white;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1.1em;
+  transition: background-color 0.3s ease;
 }
 
-.App-link {
-  color: #61dafb;
+.save-button:hover {
+  background-color: #0056b3;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+/* Popup styles */
+.popup {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  padding: 25px;
+  border-radius: 15px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+  width: 100%;
+  max-width: 500px;
+  margin: 0 10px;
+}
+
+.popup h3 {
+  margin-bottom: 20px;
+  font-size: 1.5em;
+  color: #333;
+}
+
+/* Input and schema dropdown styles */
+.segment-input {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  font-size: 1.1em;
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.schema-selection {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+  justify-content: space-between;
+}
+
+.schema-dropdown {
+  width: 75%;
+  padding: 10px;
+  margin-right: 10px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 1em;
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.add-schema-button {
+  background-color: #28a745;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1em;
+  transition: background-color 0.3s ease;
+}
+
+.add-schema-button:hover {
+  background-color: #218838;
+}
+
+/* Schema blue box for added schemas */
+.blue-box {
+  background-color: #e6f7ff;
+  padding: 15px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  border: 1px solid #007bff;
+}
+
+.schema-box {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+  justify-content: space-between;
+}
+
+.remove-schema-button {
+  background-color: #dc3545;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 0.9em;
+  transition: background-color 0.3s ease;
+}
+
+.remove-schema-button:hover {
+  background-color: #c82333;
+}
+
+/* Footer buttons */
+.popup-footer {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 25px;
+}
+
+.cancel-button, .save-button {
+  background-color: #6c757d;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  width: 45%;
+  text-align: center;
+  font-size: 1.1em;
+  transition: background-color 0.3s ease;
+}
+
+.save-button {
+  background-color: #007bff;
+}
+
+.save-button:hover {
+  background-color: #0056b3;
+}
+
+.cancel-button:hover {
+  background-color: #5a6268;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .schema-selection, .schema-box {
+    flex-direction: column;
+    align-items: flex-start;
   }
-  to {
-    transform: rotate(360deg);
+
+  .schema-dropdown {
+    width: 100%;
+    margin-right: 0;
+    margin-bottom: 10px;
+  }
+
+  .add-schema-button, .remove-schema-button {
+    width: 100%;
+  }
+
+  .cancel-button, .save-button {
+    width: 100%;
+    margin-top: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .popup {
+    width: 90%;
+  }
+
+  .segment-input {
+    font-size: 1em;
+  }
+
+  .add-schema-button, .remove-schema-button, .cancel-button, .save-button {
+    padding: 10px;
   }
 }
